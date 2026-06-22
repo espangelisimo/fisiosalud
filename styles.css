@@ -78,6 +78,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 img,
@@ -455,6 +456,13 @@ p {
 @media (min-width: 768px) {
   .header-tel {
     display: block;
+  }
+}
+
+/* Ocultar CTA del header en móviles muy estrechos para evitar overflow horizontal */
+@media (max-width: 479px) {
+  .header-right .btn {
+    display: none;
   }
 }
 
@@ -1446,6 +1454,7 @@ p {
 .contact-map iframe {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: 260px;
 }
 
@@ -1883,12 +1892,12 @@ select.form-select {
   z-index: 500;
   background: var(--rosa-900);
   color: var(--rosa-200);
-  padding: 20px clamp(20px, 5vw, 48px);
-  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  padding: 16px clamp(16px, 4vw, 48px);
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
   box-shadow: 0 -4px 24px rgba(62, 27, 45, .4);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   transform: translateY(100%);
   transition: transform 0.4s ease;
 }
@@ -1902,12 +1911,15 @@ select.form-select {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 20px clamp(20px, 5vw, 48px);
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+    gap: 16px;
   }
 }
 
 .cookie-text {
   font-size: 0.875rem;
-  line-height: 1.6;
+  line-height: 1.55;
   flex: 1;
 }
 
@@ -1922,6 +1934,13 @@ select.form-select {
   gap: 10px;
   flex-shrink: 0;
   flex-wrap: wrap;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .cookie-actions {
+    width: auto;
+  }
 }
 
 .cookie-btn {
@@ -1934,6 +1953,14 @@ select.form-select {
   min-height: 44px;
   transition: background-color var(--trans-fast), border-color var(--trans-fast);
   white-space: nowrap;
+  flex: 1;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .cookie-btn {
+    flex: 0 0 auto;
+  }
 }
 
 .cookie-btn:focus-visible {
