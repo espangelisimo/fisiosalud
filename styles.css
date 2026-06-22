@@ -368,8 +368,6 @@ p {
 .logo-mark {
   width: 36px;
   height: 36px;
-  background: var(--rosa-600);
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1167,11 +1165,14 @@ p {
 .rating-badge {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   background: rgba(255, 255, 255, .12);
   border: 1px solid rgba(237, 159, 186, .3);
   border-radius: var(--radius-btn);
   padding: 10px 20px;
+  max-width: 100%;
 }
 
 .rating-value {
@@ -1651,10 +1652,6 @@ select.form-select {
 
 .footer-brand .logo-sub {
   color: var(--rosa-400);
-}
-
-.footer-brand .logo-mark {
-  background: var(--rosa-700);
 }
 
 .footer-claim {
