@@ -79,6 +79,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img,
@@ -609,15 +610,16 @@ p {
   padding-block: clamp(56px, 10vw, 100px);
   position: relative;
   overflow: hidden;
+  overflow: clip;
 }
 
 .hero::before {
   content: '';
   position: absolute;
   top: -120px;
-  right: -120px;
-  width: clamp(300px, 50vw, 600px);
-  height: clamp(300px, 50vw, 600px);
+  right: 0;
+  width: clamp(200px, 45vw, 500px);
+  height: clamp(200px, 45vw, 500px);
   border-radius: 50%;
   background: radial-gradient(circle, var(--rosa-200) 0%, transparent 70%);
   opacity: 0.5;
@@ -628,9 +630,9 @@ p {
   content: '';
   position: absolute;
   bottom: -80px;
-  left: -80px;
-  width: 400px;
-  height: 400px;
+  left: 0;
+  width: clamp(200px, 40vw, 400px);
+  height: clamp(200px, 40vw, 400px);
   border-radius: 50%;
   background: radial-gradient(circle, var(--rosa-100) 0%, transparent 70%);
   opacity: 0.7;
