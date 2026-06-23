@@ -33,9 +33,11 @@
     mobileNav.classList.add('open');
     btnMenu.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
-    // Foco al primer enlace
-    const first = mobileNav.querySelector('.mobile-nav-link, .mobile-nav-close');
-    if (first) first.focus();
+    // Foco al primer enlace tras el frame en que visibility ya es visible
+    requestAnimationFrame(() => {
+      const first = mobileNav.querySelector('.mobile-nav-link, .mobile-nav-close');
+      if (first) first.focus();
+    });
   }
 
   function closeMenu() {
